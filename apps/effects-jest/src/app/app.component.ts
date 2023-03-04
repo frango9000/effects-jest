@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import {Actions} from "@ngneat/effects-ng";
+import {loadApp} from "./app.effects";
 
 @Component({
-  selector: 'effects-jest-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'effects-jest';
+  constructor(private actions: Actions) {}
+
+  dispatch() {
+    this.actions.dispatch(loadApp({user:'id'}));
+  }
 }

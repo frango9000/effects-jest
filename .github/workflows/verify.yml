@@ -1,0 +1,25 @@
+name: Verify
+
+on:
+  push:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Node Dependencies
+        run: yarn install
+
+      - name: Test
+        run: yarn jest
+
+      - name: Test 2
+        run: nx run effects-jest:test
