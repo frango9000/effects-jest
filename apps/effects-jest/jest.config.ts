@@ -13,7 +13,10 @@ export default {
       },
     ],
   },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!.*\\.mjs$)',
+    '<rootDir>/node_modules/(?!@ngneat/effects-ng)',
+  ],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',
